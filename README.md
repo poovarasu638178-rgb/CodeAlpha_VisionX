@@ -22,14 +22,22 @@ VisionX is a high-performance, real-time object detection web application. It le
 ✅ **Snapshot Capture**: Capture and save frames with bounding boxes directly to your device.
 ✅ **Clean Minimal UI**: A modern, dark-themed interface built with vanilla HTML/CSS.
 
-## How It Works
-VisionX is powered by **TensorFlow.js** and the **COCO-SSD** model.
-- **WebGL Acceleration**: TensorFlow.js utilizes your device's GPU via WebGL to accelerate mathematical operations, allowing for real-time video frame processing.
-- **Detection Pipeline**: 
-  1. The app requests access to your webcam using the MediaDevices API.
-  2. Video frames are continuously drawn and passed to the COCO-SSD model.
-  3. The model outputs an array of predictions, including the class name, confidence score, and bounding box coordinates `[x, y, width, height]`.
-  4. An HTML5 Canvas overlays the video, drawing accurate bounding boxes and rendering live detection pills for the user.
+## ⚙️ How It Works
+
+```mermaid
+graph TD
+    A[Start Camera] --> B[Capture Frames]
+    B --> C[COCO-SSD Inference]
+    C --> D[Filter Predictions]
+    D --> E[Render Bounding Boxes]
+    D --> F[Update UI Pills]
+```
+
+1. **Media Access**: Secures live video feed via the browser's native `navigator.mediaDevices.getUserMedia` API.
+2. **WebGL Inference**: Feeds continuous video frames into the TensorFlow.js COCO-SSD model using GPU-accelerated WebGL operations.
+3. **Threshold Filtering**: Discards predictions falling below the dynamic user-defined confidence slider threshold.
+4. **Canvas Overlay**: Maps raw prediction coordinates `[x, y, width, height]` to responsive bounding boxes drawn instantly via HTML5 Canvas context.
+5. **UI Synchronization**: Updates the detected objects pill list and calculates live frames-per-second performance metrics.
 
 ## Detectable Objects
 VisionX can detect the following 80 COCO classes:
