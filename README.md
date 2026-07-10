@@ -11,16 +11,17 @@
 [Live Demo: https://visionnx.vercel.app](https://visionnx.vercel.app)
 
 ## About
-VisionX is a high-performance, real-time object detection web application. It leverages the power of TensorFlow.js and the pre-trained COCO-SSD (Common Objects in Context - Single Shot MultiBox Detector) model to identify and locate up to 80 different classes of objects directly in your browser. With a clean, minimal UI and hardware-accelerated WebGL processing, VisionX delivers smooth and accurate computer vision capabilities without requiring any backend servers.
+
+VisionX is a high-performance, real-time object detection web application. Powered by TensorFlow.js and the pre-trained COCO-SSD model, it identifies 80 object classes directly in your browser. VisionX delivers smooth, hardware-accelerated WebGL computer vision locally, requiring zero backend servers.
 
 ## Features
 ✅ **Real-Time Detection**: Processes live webcam feeds to detect objects instantaneously.
-✅ **80 Object Classes**: Capable of identifying a wide variety of everyday objects, animals, vehicles, and more.
-✅ **Client-Side Inference**: 100% of the AI processing happens in your browser via TensorFlow.js, ensuring privacy and low latency.
-✅ **Interactive Controls**: Adjust confidence thresholds and maximum object limits on the fly.
-✅ **FPS Monitoring**: Built-in frames-per-second tracker to monitor inference performance.
-✅ **Snapshot Capture**: Capture and save frames with bounding boxes directly to your device.
-✅ **Clean Minimal UI**: A modern, dark-themed interface built with vanilla HTML/CSS.
+✅ **80 Object Classes**: Identifies everyday items, animals, and vehicles with high accuracy.
+✅ **Client-Side Inference**: Runs AI processing entirely in-browser via TensorFlow.js for total privacy.
+✅ **Interactive Controls**: Adjusts confidence thresholds and maximum object limits dynamically.
+✅ **FPS Monitoring**: Tracks frames-per-second to monitor live inference performance.
+✅ **Snapshot Capture**: Saves video frames with bounding boxes directly to your device.
+✅ **Clean Minimal UI**: Uses a modern, dark-themed interface built with vanilla HTML/CSS.
 
 ## ⚙️ How It Works
 
@@ -33,25 +34,23 @@ graph TD
     D --> F[Update UI Pills]
 ```
 
-1. **Media Access**: Secures live video feed via the browser's native `navigator.mediaDevices.getUserMedia` API.
-2. **WebGL Inference**: Feeds continuous video frames into the TensorFlow.js COCO-SSD model using GPU-accelerated WebGL operations.
-3. **Threshold Filtering**: Discards predictions falling below the dynamic user-defined confidence slider threshold.
-4. **Canvas Overlay**: Maps raw prediction coordinates `[x, y, width, height]` to responsive bounding boxes drawn instantly via HTML5 Canvas context.
-5. **UI Synchronization**: Updates the detected objects pill list and calculates live frames-per-second performance metrics.
+1. **Media Access**: Secures live video feeds via the browser's native `getUserMedia` API.
+2. **WebGL Inference**: Feeds continuous video frames into the COCO-SSD model using GPU-accelerated WebGL.
+3. **Threshold Filtering**: Discards weak predictions falling below your dynamic confidence slider threshold.
+4. **Canvas Overlay**: Maps raw coordinates to responsive bounding boxes drawn instantly via HTML5 Canvas.
+5. **UI Synchronization**: Updates the detected objects list and calculates live frames-per-second metrics.
 
 ## Detectable Objects
 VisionX can detect the following 80 COCO classes:
 
-| Category | Objects |
-| :--- | :--- |
-| **People** | Person |
-| **Vehicles** | Bicycle, Car, Motorcycle, Airplane, Bus, Train, Truck, Boat |
-| **Animals** | Bird, Cat, Dog, Horse, Sheep, Cow, Elephant, Bear, Zebra, Giraffe |
-| **Sports** | Frisbee, Skis, Snowboard, Sports ball, Kite, Baseball bat, Baseball glove, Skateboard, Surfboard, Tennis racket |
-| **Food** | Bottle, Wine glass, Cup, Fork, Knife, Spoon, Bowl, Banana, Apple, Sandwich, Orange, Broccoli, Carrot, Hot dog, Pizza, Donut, Cake |
-| **Furniture** | Chair, Couch, Potted plant, Bed, Dining table, Toilet, Sink, Vase |
-| **Electronics** | TV, Laptop, Mouse, Remote, Keyboard, Cell phone, Microwave, Oven, Toaster, Refrigerator, Hair drier |
-| **Other** | Backpack, Umbrella, Handbag, Tie, Suitcase, Book, Clock, Scissors, Teddy bear, Toothbrush |
+- **People**: Detects persons directly within the frame.
+- **Vehicles**: Identifies bicycles, cars, motorcycles, airplanes, buses, trains, trucks, and boats.
+- **Animals**: Recognizes birds, cats, dogs, horses, sheep, cows, elephants, bears, zebras, and giraffes.
+- **Sports**: Tracks frisbees, skis, snowboards, sports balls, kites, bats, gloves, skateboards, surfboards, and rackets.
+- **Food**: Spots bottles, wine glasses, cups, forks, knives, spoons, bowls, fruits, vegetables, and common meals.
+- **Furniture**: Locates chairs, couches, potted plants, beds, dining tables, toilets, sinks, and vases.
+- **Electronics**: Finds TVs, laptops, mice, remotes, keyboards, cell phones, microwaves, ovens, toasters, and refrigerators.
+- **Other**: Identifies backpacks, umbrellas, handbags, ties, suitcases, books, clocks, scissors, teddy bears, and toothbrushes.
 
 ## Tech Stack
 - **HTML5**: Structure and Semantic Layout
