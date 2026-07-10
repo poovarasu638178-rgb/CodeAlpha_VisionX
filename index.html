@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="VisionX — Real-Time AI Object Detection System">
+  <title>VisionX — Real-Time AI Object Detection System</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app">
+    <!-- HEADER -->
+    <header class="header">
+      <div class="header-logo">
+        <img src="favicon.png" alt="VisionX Logo" class="logo-image">
+        <span class="logo-text">VisionX</span>
+      </div>
+      <div class="header-subtitle">Real-Time AI Object Detection</div>
+      <div class="header-status" id="systemStatus">
+        <span class="status-dot status-dot--loading"></span>
+        <span class="status-text">Model Loading</span>
+      </div>
+    </header>
+
+    <!-- MAIN CARD -->
+    <main class="main-card">
+      <div class="video-container" id="videoContainer">
+        <!-- Corner decorations -->
+        <div class="corner-bracket corner-bracket--tl"></div>
+        <div class="corner-bracket corner-bracket--tr"></div>
+        <div class="corner-bracket corner-bracket--bl"></div>
+        <div class="corner-bracket corner-bracket--br"></div>
+
+        <!-- Video & Canvas -->
+        <video id="webcam" autoplay playsinline muted></video>
+        <canvas id="overlayCanvas"></canvas>
+
+        <!-- States -->
+        <div class="video-state video-state--offline" id="offlineState">
+          <p class="state-title">CAMERA OFFLINE</p>
+        </div>
+
+        <div class="video-state video-state--loading hidden" id="loadingState">
+          <p class="state-title">INITIALIZING...</p>
+        </div>
+
+        <div class="video-state video-state--error hidden" id="errorState">
+          <p class="state-title state-title--error" id="errorTitle">ERROR</p>
+          <p class="state-subtitle" id="errorMessage">Unable to access camera.</p>
+          <button class="btn btn--retry" id="retryBtn">RETRY</button>
+        </div>
+      </div>
+
+      <!-- CONTROLS ROW -->
+      <div class="controls-row">
+        <div class="controls-left">
+          <button class="btn btn--start" id="startBtn">Start Detection</button>
+          <button class="btn btn--stop hidden" id="stopBtn">Stop</button>
+          <button class="btn btn--capture" id="captureBtn">Capture Frame</button>
+        </div>
+        <div class="controls-right">
+          <div class="fps-badge" id="fpsCounter">-- FPS</div>
+        </div>
+      </div>
+
+      <!-- SETTINGS ROW -->
+      <div class="settings-row">
+        <div class="slider-group">
+          <div class="slider-header">
+            <label for="confidenceSlider">Confidence</label>
+            <span class="slider-value" id="confidenceValue">0.50</span>
+          </div>
+          <input type="range" id="confidenceSlider" min="0.1" max="0.9" step="0.05" value="0.5" class="slider">
+        </div>
+        <div class="slider-group">
+          <div class="slider-header">
+            <label for="maxDetectionsSlider">Max Objects</label>
+            <span class="slider-value" id="maxDetectionsValue">10</span>
+          </div>
+          <input type="range" id="maxDetectionsSlider" min="1" max="20" step="1" value="10" class="slider">
+        </div>
+      </div>
+
+      <!-- DETECTED OBJECTS -->
+      <div class="detected-section">
+        <div class="detected-list" id="detectedList">
+          <!-- Pills will be injected here -->
+          <div class="detected-empty">No objects detected</div>
+        </div>
+      </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      VisionX — Built by Poovarasu S for CodeAlpha AI Internship 2026
+    </footer>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/coco-ssd@latest"></script>
+  <script src="script.js"></script>
+</body>
+</html>
