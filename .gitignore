@@ -30,4 +30,5 @@ build/
 # Captured frames (local testing)
 captures/
 *.png
+!favicon.png
 !assets/**/*.png
