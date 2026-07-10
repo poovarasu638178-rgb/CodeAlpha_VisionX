@@ -56,8 +56,8 @@ VisionX can detect the following 80 COCO classes:
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/poovarasu638178-rgb/CodeAlpha_VisionX.git
-cd CodeAlpha_VisionX
+git clone https://github.com/poovarasu638178-rgb/codealpha_tasks.git
+cd codealpha_tasks/Task1_VisionX
 ```
 
 2. Start a local server:
