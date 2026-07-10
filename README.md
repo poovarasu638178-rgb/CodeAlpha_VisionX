@@ -15,13 +15,13 @@
 VisionX is a high-performance, real-time object detection web application. Powered by TensorFlow.js and the pre-trained COCO-SSD model, it identifies 80 object classes directly in your browser. VisionX delivers smooth, hardware-accelerated WebGL computer vision locally, requiring zero backend servers.
 
 ## Features
-✅ **Real-Time Detection**: Processes live webcam feeds to detect objects instantaneously.
-✅ **80 Object Classes**: Identifies everyday items, animals, and vehicles with high accuracy.
-✅ **Client-Side Inference**: Runs AI processing entirely in-browser via TensorFlow.js for total privacy.
-✅ **Interactive Controls**: Adjusts confidence thresholds and maximum object limits dynamically.
-✅ **FPS Monitoring**: Tracks frames-per-second to monitor live inference performance.
-✅ **Snapshot Capture**: Saves video frames with bounding boxes directly to your device.
-✅ **Clean Minimal UI**: Uses a modern, dark-themed interface built with vanilla HTML/CSS.
+- ✅ **Real-Time Detection**: Processes live webcam feeds to detect objects instantaneously.
+- ✅ **80 Object Classes**: Identifies everyday items, animals, and vehicles with high accuracy.
+- ✅ **Client-Side Inference**: Runs AI processing entirely in-browser via TensorFlow.js for total privacy.
+- ✅ **Interactive Controls**: Adjusts confidence thresholds and maximum object limits dynamically.
+- ✅ **FPS Monitoring**: Tracks frames-per-second to monitor live inference performance.
+- ✅ **Snapshot Capture**: Saves video frames with bounding boxes directly to your device.
+- ✅ **Clean Minimal UI**: Uses a modern, dark-themed interface built with vanilla HTML/CSS.
 
 ## ⚙️ How It Works
 
